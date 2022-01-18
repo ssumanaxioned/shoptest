@@ -34,13 +34,14 @@ describe('api reducer',()=> {
       })
   })
 
-  test('should handle FETCH_API_REQUEST', ()=> {
+  test('should handle LOAD_POSTS', ()=> {
     const expected = {
-      isLoading: true
+      data
     }
 
     expect(apiReducer([], {
-      type: 'FETCH_API_REQUEST',
+      type: 'LOAD_POSTS',
+      payload: data
     })).toEqual(expected)
   })
 
@@ -48,12 +49,10 @@ describe('api reducer',()=> {
   test('should handle FETCH_API_SUCCESS', ()=> {
     const expected = {
       isLoading: false,
-      data
     }
 
     expect(apiReducer([], {
       type: 'FETCH_API_SUCCESS',
-      payload: data
     })).toEqual(expected)
   })
 

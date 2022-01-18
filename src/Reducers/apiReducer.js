@@ -6,13 +6,16 @@ const initialState = {
 
 const apiReducer =(state = initialState, action)=> {
   switch(action.type) {
-    case 'FETCH_API_REQUEST':
-      return {
-        ...state, isLoading: true
-      }
+    // case 'FETCH_API_REQUEST':
+    //   return {
+    //     ...state, isLoading: true
+    //   }
+    case 'LOAD_POSTS': return {
+      ...state, data: action.payload 
+    }
     case 'FETCH_API_SUCCESS': 
     return {
-      ...state, data: action.payload , isLoading: false
+      ...state, isLoading: false
     }
 
     case 'FETCH_API_FAILURE':

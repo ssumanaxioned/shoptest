@@ -14,7 +14,7 @@ export const removeFromCart =(id)=> {
   }
 }
 
-export const fetchApiRequest =(id)=> {
+export const fetchApiRequest =()=> {
   return {
     type: 'FETCH_API_REQUEST'
   }
@@ -27,20 +27,27 @@ export const fetchApiFailure =error=> {
   }
 }
 
-export const fetchApiSuccess =data=> {
+export const fetchApiSuccess =()=> {
   return {
     type: 'FETCH_API_SUCCESS',
-    payload: data
   }
 }
 
-export const fetchAPI =url=>{
-  return (dispatch) => {
-    dispatch(fetchApiRequest)
-    axios.get(url)
+export const loadPosts = (data) => {
+  return {
+    type: "LOAD_POSTS",
+    payload: data
+  };
+};
+
+export const fetchAPI =()=>{
+  return async(dispatch) => {
+
+   return axios
+    .get('https://fakestoreapi.com/products')
     .then(response => {
-      const weather = response.data
-      dispatch(fetchApiSuccess(weather))
+      dispatch(loadPosts(response.data))
+      dispatch(fetchApiSuccess())
     })
     .catch(error => {
       const errorMsg = error.message

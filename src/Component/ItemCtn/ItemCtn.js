@@ -9,7 +9,7 @@ function ItemCtn() {
   const {data, isLoading} = useSelector(state => state.apiReducer);
 
   useEffect(()=> {
-    dispatch(fetchAPI('https://fakestoreapi.com/products'));
+    dispatch(fetchAPI());
   }, []);
 
   return (
