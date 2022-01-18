@@ -1,0 +1,67 @@
+.header {
+  width: 100%;
+  padding: 1em 0;
+  position: sticky;
+  top: 0;
+  background-color: black;
+  color: white; 
+}
+
+.header .wrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 { 
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.icon { font-size: 24px; }
+.cart { float: right; } 
+
+form { 
+  flex-basis: 50%;
+  margin-left: 1em; 
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+input { 
+  max-width: 500px;
+  width: 100%;
+  padding: .5em .5em;
+  border-radius: 5px;
+  outline: none;
+  display: block;
+}
+
+form button {
+  border: none;
+  background: none;
+  color: white;
+}
+
+.search { 
+  margin-left: -50px;
+  font-size: 20px; 
+  color: black;
+}
+
+.cart_ctn { position: relative; }
+
+.cartno {
+  padding: .25em .5em;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  transform: translate(50%, 50%);
+}
