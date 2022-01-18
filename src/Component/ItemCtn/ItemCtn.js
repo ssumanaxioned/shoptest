@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchAPI } from '../../actions';
+import { addToCart, fetchAPI } from '../../actions';
 import Item from '../Item/Item';
 import './itemctn.css';
 
@@ -17,7 +17,7 @@ function ItemCtn() {
       {
         isLoading ? null : (
           data.map(item=> (
-            <Item data-testid='list' key={item.id} item={item} />
+            <Item data-testid='list' key={item.id} item={item} handleClick={()=>dispatch(addToCart(item.id))} />
           ))
         )
       }
